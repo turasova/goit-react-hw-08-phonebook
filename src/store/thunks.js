@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { loginUser, logoutUser, registrationUser } from "service/auth";
 import { addContacts, deleteContacts, fetchContacts} from "service/getContactApi";
 
 export const getContactsThunk = createAsyncThunk(
@@ -41,3 +42,30 @@ export const deleteContactThunk = createAsyncThunk(
         }
     }
 );
+
+
+export const signUpThunk = createAsyncThunk('auth/signUp', async (body, { rejectWithValue }) => {
+	try {
+		return await registrationUser(body)
+	} catch (error) {
+		return rejectWithValue(error.response.data.error)
+	}
+})
+
+
+export const loginThunk = createAsyncThunk('auth/login', async (body, { rejectWithValue }) => {
+	try {
+		return await loginUser(body)
+	} catch (error) {
+		return rejectWithValue(error.response.data.error)
+	}
+})
+
+
+export const logoutThunk = createAsyncThunk('auth/login', async ( { rejectWithValue }) => {
+	try {
+		return await logoutUser()
+	} catch (error) {
+		return rejectWithValue(error.response.data.error)
+	}
+})

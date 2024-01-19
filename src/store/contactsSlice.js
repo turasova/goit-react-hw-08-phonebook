@@ -1,5 +1,7 @@
 import {createSlice } from "@reduxjs/toolkit";
 import { addContactThunk, deleteContactThunk, getContactsThunk } from "./thunks";
+import storage from "redux-persist/lib/storage";
+import persistReducer from "redux-persist/lib/persistReducer";
 
 
 const handlePending = (state) => {
@@ -47,3 +49,14 @@ export const getIsLoading = state => state.contacts.isLoading;
 
 
 
+const persistConfig = {
+    key: 'contacts',
+    storage,
+    whitelist: ['token'],
+
+}
+
+export const contactsPersistReducer = persistReducer(
+    persistConfig,
+    contactsSlice.reducer
+)
