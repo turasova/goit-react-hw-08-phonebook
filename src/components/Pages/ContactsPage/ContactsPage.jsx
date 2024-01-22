@@ -1,4 +1,4 @@
-import { Form } from 'components/Form/Form';
+import { Form } from 'components/Form/FormAddContact/Form';
 import css from './ContactsPage.module.css';
 import { Filter } from 'components/Filter/Filter';
 import { Loader } from 'components/Loader/loader';

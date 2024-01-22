@@ -1,25 +1,19 @@
-import FormRegistration from 'components/Form/FormRegistration';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { isAuthSelector } from 'store/selectors';
-import { signUpThunk } from 'store/thunks';
+import FormRegistration from 'components/Form/FormRegistration/FormRegistration';
+// import { useEffect } from 'react';
+// import { useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+// import { isAuthSelector } from 'store/selectors';
 
 const RegistrationPage = () => {
-  const isAuth = useSelector(isAuthSelector);
+  // const isAuth = useSelector(isAuthSelector);
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    isAuth && navigate('/');
-  }, [isAuth, navigate]);
+  // useEffect(() => {
+  //   isAuth && navigate('/');
+  // }, [isAuth, navigate]);
 
-  const register = body => {
-    dispatch(signUpThunk(body));
-  };
-
-  return <FormRegistration register={register} />;
+  return <FormRegistration />;
 };
 
 export default RegistrationPage;

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { loginUser, logoutUser, registrationUser } from "service/auth";
+import {  currentUser, loginUser, logoutUser, registrationUser } from "service/auth";
 import { addContacts, deleteContacts, fetchContacts} from "service/getContactApi";
 
 export const getContactsThunk = createAsyncThunk(
@@ -44,28 +44,57 @@ export const deleteContactThunk = createAsyncThunk(
 );
 
 
-export const signUpThunk = createAsyncThunk('auth/signUp', async (body, { rejectWithValue }) => {
-	try {
-		return await registrationUser(body)
+export const signUpThunk = createAsyncThunk(
+    'auth/signUp',
+    async ({name,email,password}, thunkApi) => {
+        try {
+        const newUser= await registrationUser({name,email,password})
+		return newUser
 	} catch (error) {
-		return rejectWithValue(error.response.data.error)
+		return thunkApi.rejectWithValue(error.message)
 	}
 })
 
 
-export const loginThunk = createAsyncThunk('auth/login', async (body, { rejectWithValue }) => {
-	try {
-		return await loginUser(body)
+export const loginThunk = createAsyncThunk(
+    'auth/login',
+    async ({email,password}, thunkApi) => {
+        try {
+        const authLoginUser = await loginUser({email,password})
+		return authLoginUser
 	} catch (error) {
-		return rejectWithValue(error.response.data.error)
+		return thunkApi.rejectWithValue(error.message)
 	}
 })
 
 
-export const logoutThunk = createAsyncThunk('auth/login', async ( { rejectWithValue }) => {
-	try {
-		return await logoutUser()
+export const logoutThunk = createAsyncThunk(
+    'auth/logout',
+    async (_, thunkApi) => {
+        try {
+        const exitUser = await logoutUser()
+		return exitUser
 	} catch (error) {
-		return rejectWithValue(error.response.data.error)
+		return thunkApi.rejectWithValue(error.message)
 	}
 })
+
+export const currentUserThunk = createAsyncThunk(
+    'current/user',
+    async (_,thunkApi) => {
+        const state = thunkApi.getState();
+        const persistedToken = state.auth.token;
+
+        if (persistedToken === null) {
+            console.log('no token')
+            return thunkApi.rejectWithValue('Unable to fetch user');
+        }
+        
+        try {
+            return await currentUser()
+            
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message)
+        }
+    }
+)

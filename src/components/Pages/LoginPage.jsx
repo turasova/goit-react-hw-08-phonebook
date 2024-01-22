@@ -1,4 +1,4 @@
-const { default: FormLogin } = require('components/Form/FormLogin');
+import FormLogin from 'components/Form/FormLogin/FormLogin';
 
 const LoginPage = () => {
   return <FormLogin />;
