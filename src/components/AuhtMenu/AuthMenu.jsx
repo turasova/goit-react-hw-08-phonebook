@@ -46,14 +46,16 @@ const AuthMenu = () => {
                   className={css.avatar}
                 />
                 <h3 className={css.userText}>Welcom, {user.name}</h3>
-                <button
-                  className={css.button}
-                  onClick={() => {
-                    dispatch(logoutThunk());
-                  }}
-                >
-                  Logout
-                </button>
+                <NavLink to="/">
+                  <button
+                    className={css.button}
+                    onClick={() => {
+                      dispatch(logoutThunk());
+                    }}
+                  >
+                    Logout
+                  </button>
+                </NavLink>
               </li>
             </ul>
           </div>
