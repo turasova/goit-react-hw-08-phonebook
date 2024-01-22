@@ -42,7 +42,9 @@ export const loginThunk = createAsyncThunk(
         return data;
     } catch (error) {
       Notiflix.Notify.failure(`You entered an incorrect login or password`,
-      {width: '400px',
+        {
+          width: '400px',
+        
         position: 'center-center',
         timeout: 1000,
         fontSize: '20px',});
@@ -64,24 +66,3 @@ export const logoutThunk = createAsyncThunk(
 }
 );
 
-export const currentUserThunk = createAsyncThunk(
-    'auth/getCurrentUser',
-    async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-        return thunkAPI.rejectWithValue('Unable to fetch user');
-      }
-      token.set(persistedToken);  
-
-    try {
-          
-        const {data} = await axios.get('/users/current');
-       
-      return data;
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-    }
-}
-);
