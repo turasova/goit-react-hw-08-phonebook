@@ -34,7 +34,7 @@ export const Form = () => {
       Notiflix.Notify.failure(`${newContact.name} is already in contacts`, {
         width: '400px',
         position: 'center-center',
-        timeout: 3000,
+        timeout: 1000,
         fontSize: '20px',
       });
       return;
