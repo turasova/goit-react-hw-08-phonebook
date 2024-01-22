@@ -1,10 +1,15 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './AuthMenu.module.css';
 import { NavLink } from 'react-router-dom';
 import { userSelector } from 'store/selectors';
+import { logoutThunk } from 'service/auth';
+import defaultAvatar from '../../images/avatar.jpg';
 
 const AuthMenu = () => {
   const user = useSelector(userSelector);
+  const dispatch = useDispatch();
+  const avatar = defaultAvatar;
+
   return (
     <>
       <header className={css.header}>
@@ -33,16 +38,22 @@ const AuthMenu = () => {
               </li>
             </ul>
             <ul className={css.auth}>
-              <li>
-                <h3>Welcom,{user}</h3>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    `${css.textLink} ${isActive ? css.active : ''}`
-                  }
+              <li className={css.listUser}>
+                <img
+                  src={avatar}
+                  alt="avatar"
+                  width={32}
+                  className={css.avatar}
+                />
+                <h3 className={css.userText}>Welcom, {user.name}</h3>
+                <button
+                  className={css.button}
+                  onClick={() => {
+                    dispatch(logoutThunk());
+                  }}
                 >
-                  Exit
-                </NavLink>
+                  Logout
+                </button>
               </li>
             </ul>
           </div>

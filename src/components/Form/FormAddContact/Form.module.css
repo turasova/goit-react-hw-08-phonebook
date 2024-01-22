@@ -10,14 +10,17 @@
     border-radius: 4px;
     cursor: pointer;
     margin: 30px auto;
-    box-shadow: 5px 3px 3px blue;
+    box-shadow: 5px 3px 3px rgb(55, 55, 124);
 }
 .button:hover,
 .button:focus {
-    background-color: blue;
+    background-color: rgb(55, 55, 124);
+    color: white;
 }
 .input {
-    border-color: blue;
+    border-color: rgb(55, 55, 124);
+    width: 350px;
     border-radius: 4px;
-    height: 20px;
+    height: 26px;
+    margin-bottom: 20px;
 }

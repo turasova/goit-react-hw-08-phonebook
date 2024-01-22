@@ -1,5 +1,6 @@
-import { currentUserThunk, loginThunk, logoutThunk, signUpThunk } from "./thunks"
+
 import { createSlice } from '@reduxjs/toolkit';
+import { currentUserThunk, loginThunk, logoutThunk, signUpThunk } from 'service/auth';
 
 const authInitialState = {
     isLoggedIn: false,

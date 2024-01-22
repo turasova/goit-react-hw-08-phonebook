@@ -13,10 +13,6 @@ const persistConfigAuth = {
 
 }
 
-// export const contactsPersistReducer = persistReducer(
-//     persistConfig,
-//     contactsSlice.reducer
-// )
 
 
 export const store = configureStore({

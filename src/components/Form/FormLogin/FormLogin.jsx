@@ -1,13 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import css from './FormLogin.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginThunk } from 'store/thunks';
+import { loginThunk } from 'service/auth';
 
 const FormLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -31,6 +32,8 @@ const FormLogin = () => {
 
     dispatch(loginThunk(authLoginUser));
 
+    navigate('/contacts');
+
     reset();
   };
 
@@ -48,6 +51,8 @@ const FormLogin = () => {
           <input
             type="email"
             name="email"
+            value={email}
+            required
             placeholder="Enter email"
             className={css.inputForm}
             onChange={handleChange}
@@ -59,6 +64,8 @@ const FormLogin = () => {
           <input
             name="password"
             type="password"
+            value={password}
+            required
             placeholder="Enter password"
             className={css.inputForm}
             onChange={handleChange}

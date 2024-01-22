@@ -1,6 +1,7 @@
 
 .filterField {
-    border-color: blue;
-    border-radius: 4px;
-    height: 20px;
+    border-color: rgb(55, 55, 124);
+    width: 350px;
+        border-radius: 4px;
+        height: 26px;
 }

@@ -5,22 +5,32 @@ import { Loader } from 'components/Loader/loader';
 import { ContactList } from 'components/ContactList/ContactList';
 import { useSelector } from 'react-redux';
 import { getContactValue, getIsLoading } from 'store/contactsSlice';
+import { EmptyContactsList } from 'components/EmptyContactList/EmptyContactList';
+import defaultPhonebook from '../../../images/bookphone.png';
+import defaultAvatarContact from '../../../images/contacts.png';
 
 const ContactsPage = () => {
   const contactIsLoading = useSelector(getIsLoading);
   const contacts = useSelector(getContactValue);
+  const phonebook = defaultPhonebook;
+  const avatarContact = defaultAvatarContact;
 
   return (
     <div>
+      {contactIsLoading && <Loader />}
       <div className={css.phonebookWrapper}>
-        <h1 className={css.title}>Phonebook</h1>
+        <div className={css.phone}>
+          <img src={phonebook} alt="phonebook" width={54} />
+        </div>
         <Form />
       </div>
       <div className={css.contactsWrapper}>
-        <h2 className={css.title}>Contacts</h2>
-        {contacts !== null && <Filter />}
-        {contactIsLoading && <Loader />}
+        <div className={css.phone}>
+          <img src={avatarContact} alt="avatarContact" width={54} />
+        </div>
+        <Filter />
         <ContactList />
+        {contacts.length === 0 && <EmptyContactsList />}
       </div>
     </div>
   );

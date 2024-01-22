@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from 'store/filterSlice';
-import { deleteContactThunk, getContactsThunk } from 'store/thunks';
+//import { deleteContactThunk, getContactsThunk } from 'store/thunks';
 import { getContactValue } from 'store/contactsSlice';
+import { deleteContactThunk, getContactsThunk } from 'service/getContactApi';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -27,10 +28,10 @@ export const ContactList = () => {
 
   return (
     <ul className={css.listContact}>
-      {visibleContacts.map(({ name, phone, id }) => (
+      {visibleContacts.map(({ name, number, id }) => (
         <li className={css.contactItem} key={id}>
           <p>
-            {name}: {phone}
+            {name}: {number}
           </p>
           <button
             type="button"

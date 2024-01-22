@@ -21,7 +21,7 @@ export const Header = () => {
                   `${css.textLink} ${isActive ? css.active : ''}`
                 }
               >
-                Home
+                PhoneBook
               </NavLink>
             </li>
           </ul>

@@ -4,9 +4,9 @@ import { Layout } from './Layout/Layout';
 import { Loader } from './Loader/loader';
 import { PrivateRoute, RegistrationRoute } from './PrivateRoutes/PrivateRoute';
 import { useDispatch } from 'react-redux';
-import { currentUserThunk } from 'store/thunks';
+import { currentUserThunk } from 'service/auth';
 
-const HomePage = lazy(() => import('./Pages/HomePage'));
+const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
 const ContactsPage = lazy(() => import('./Pages/ContactsPage/ContactsPage'));
 const LoginPage = lazy(() => import('./Pages/LoginPage'));
 const RegistrationPage = lazy(() => import('./Pages/RegistrationPage'));

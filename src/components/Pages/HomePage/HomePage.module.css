@@ -1,0 +1,16 @@
+.helloText{
+    font-size: 36px;
+    font-weight: 600;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(203, 221, 237, 0.7);
+    width: 550px;
+    height: 250px;
+    margin: 150px auto;
+    border-radius: 15px;
+    color: rgb(4, 4, 47);
+
+}

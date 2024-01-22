@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import css from './FormRegistratin.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signUpThunk } from 'store/thunks';
+import { signUpThunk } from 'service/auth';
+//import { signUpThunk } from 'store/thunks';
 
 const FormRegistration = () => {
   const [name, setName] = useState('');
@@ -52,6 +53,8 @@ const FormRegistration = () => {
           <input
             type="text"
             name="name"
+            value={name}
+            required
             placeholder="Enter name"
             className={css.inputForm}
             onChange={handleChange}
@@ -63,6 +66,8 @@ const FormRegistration = () => {
           <input
             type="email"
             name="email"
+            value={email}
+            required
             placeholder="Enter email"
             className={css.inputForm}
             onChange={handleChange}
@@ -74,6 +79,8 @@ const FormRegistration = () => {
           <input
             name="password"
             type="password"
+            value={password}
+            required
             placeholder="Enter password"
             className={css.inputForm}
             onChange={handleChange}

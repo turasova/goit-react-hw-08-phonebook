@@ -4,13 +4,13 @@
     justify-content: center;
     text-align: center;
     gap: 40px;
-  background-color: rgb(217, 232, 227);
+  background-color: rgb(217, 232, 227,0.7);
   max-width: 600px;
   margin: 50px auto;
-border: 2px solid darkblue;
 border-radius: 8px;
 padding: 20px;
-box-shadow: 5px 3px 3px #3f51b5;
+box-shadow: 5px 3px 3px rgb(55, 55, 124);
+margin-top: 150px;
 }
 
 .inputForm{
@@ -25,10 +25,11 @@ box-shadow: 5px 3px 3px #3f51b5;
     border-radius: 4px;
     cursor: pointer;
     margin: 30px auto;
-    box-shadow: 5px 3px 3px #3f51b5;
+    box-shadow: 5px 3px 3px rgb(55, 55, 124);
 }
 
 .button:hover,
 .button:focus {
-    background-color: #3f51b5;
+background-color: rgb(55, 55, 124);
+    color: white;
 }

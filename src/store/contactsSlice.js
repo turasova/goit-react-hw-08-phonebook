@@ -1,5 +1,6 @@
 import {createSlice } from "@reduxjs/toolkit";
-import { addContactThunk, deleteContactThunk, getContactsThunk } from "./thunks";
+import { addContactThunk, deleteContactThunk, getContactsThunk } from "service/getContactApi";
+
 
 
 const handlePending = (state) => {

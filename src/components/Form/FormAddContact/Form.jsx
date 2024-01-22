@@ -3,11 +3,11 @@ import css from './Form.module.css';
 import { useState } from 'react';
 import Notiflix from 'notiflix';
 import { getContactValue } from 'store/contactsSlice';
-import { addContactThunk } from 'store/thunks';
+import { addContactThunk } from 'service/getContactApi';
 
 export const Form = () => {
   const [name, setName] = useState('');
-  const [phone, setNumber] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(getContactValue);
 
@@ -28,7 +28,7 @@ export const Form = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const newContact = { name, phone };
+    const newContact = { name, number };
 
     if (isDuplicated(contacts, newContact) !== undefined) {
       Notiflix.Notify.failure(`${newContact.name} is already in contacts`, {
@@ -59,7 +59,6 @@ export const Form = () => {
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <label>
-        Name <br />
         <input
           className={css.input}
           type="text"
@@ -67,17 +66,18 @@ export const Form = () => {
           value={name}
           required
           onChange={handleChange}
+          placeholder="Enter name"
         />
       </label>
       <label>
-        Phone number <br />
         <input
           className={css.input}
           type="tel"
           name="number"
-          value={phone}
+          value={number}
           required
           onChange={handleChange}
+          placeholder="Enter phone number"
         />
       </label>
       <button className={css.button} type="submit">
