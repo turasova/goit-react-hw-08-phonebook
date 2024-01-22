@@ -26,7 +26,9 @@ const HomePage = () => {
               Please log in to your account or register
             </p>
             <NavLink to="/login">
-              <button className={css.button}>Sing In</button>
+              <div className={css.wrap}>
+                <button className={css.button}>Sing In</button>
+              </div>
             </NavLink>
           </div>
         </>
