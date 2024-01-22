@@ -1,6 +1,7 @@
 .helloText{
     font-size: 36px;
     font-weight: 600;
+    margin-bottom: 10px;
 }
 .container{
     display: flex;
@@ -15,4 +16,16 @@
    padding-left: 150px;
    padding-right: 150px;
 
+}
+.button{
+    width: 100px;
+        padding: 5px 5px;
+        border-radius: 4px;
+        box-shadow: 5px 3px 3px rgb(55, 55, 124);
+        margin-right: 50px;
+}
+.button:hover,
+.button:focus {
+    background-color: rgb(55, 55, 124);
+    color: white;
 }

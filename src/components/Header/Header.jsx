@@ -21,7 +21,7 @@ export const Header = () => {
                   `${css.textLink} ${isActive ? css.active : ''}`
                 }
               >
-                PhoneBook
+                <p className={css.heroText}>PhoneBook</p>
               </NavLink>
             </li>
           </ul>

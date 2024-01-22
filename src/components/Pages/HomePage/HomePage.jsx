@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { isAuthSelector, userSelector } from 'store/selectors';
 import css from './HomePage.module.css';
+import { NavLink } from 'react-router-dom';
 
 const HomePage = () => {
   const isLoggedIn = useSelector(isAuthSelector);
@@ -24,6 +25,9 @@ const HomePage = () => {
               Hello! I'm your phonebook. <br />
               Please log in to your account or register
             </p>
+            <NavLink to="/login">
+              <button className={css.button}>Sing In</button>
+            </NavLink>
           </div>
         </>
       )}
