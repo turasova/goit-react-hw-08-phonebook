@@ -22,7 +22,7 @@ const HomePage = () => {
           <div>
             <p className={css.helloText}>
               Hello! I'm your phonebook. <br />
-              Please log in to your account or register.
+              Please log in to your account or register
             </p>
           </div>
         </>
